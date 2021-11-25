@@ -1,0 +1,71 @@
+/* Set the size of the div element that contains the map */
+#map {
+  height: 400px;  /* The height is 400 pixels */
+  width: 100%;  /* The width is the width of the web page */
+ }
+
+
+
+
+/* Optional: Makes the sample page fill the window. */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* The popup bubble styling. */
+.popup-bubble {
+  /* Position the bubble centred-above its parent. */
+  position: absolute;
+  top: -52px;
+  left: 0;
+  transform: translate(-50%, -100%);
+  /* Style the bubble. */
+  background-color: white;
+  padding: 15px 10px;
+  border-radius: 0px;
+  font-family: sans-serif;
+  overflow-y: auto;
+  width: 252px;
+	height: 75px;
+	box-shadow: 0 0 7px rgba(0,1,1,0.2);
+	background-color: #0e72b5;
+	font-size: 16px;
+	line-height: 22px;
+	color: #ffffff;
+	text-align: center;
+	font-family: 'proxima_nova_altbold';
+}
+/* The parent of the bubble. A zero-height div at the top of the tip. */
+.popup-bubble-anchor {
+  /* Position the div a fixed distance above the tip. */
+  position: absolute;
+  width: 100%;
+  bottom: /* TIP_HEIGHT= */ 8px;
+  left: 0;
+}
+/* This element draws the tip. */
+.popup-bubble-anchor::after {
+  content: "";
+  position: absolute;
+  top: -52px;
+  left: 0;
+  /* Center the tip horizontally. */
+  transform: translate(-50%, 0);
+  /* The tip is a https://css-tricks.com/snippets/css/css-triangle/ */
+  width: 0;
+  height: 0;
+  /* The tip is 8px high, and 12px wide. */
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: /* TIP_HEIGHT= */ 9px solid #0e72b5;
+}
+/* JavaScript will position this div at the bottom of the popup tip. */
+.popup-container {
+  cursor: pointer;
+  height: 0;
+  position: absolute;
+  /* The max width of the info window. */
+  width: 200px;
+}
